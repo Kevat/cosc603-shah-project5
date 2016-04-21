@@ -153,11 +153,11 @@ public class Main {
 	    
 	    //Read in amt sugar
 	    final String sugarString = inputOutput(System.getProperty("line.separator") + "Please enter the units of sugar in the recipe: ");
-	    final int amtSugar = readIntWithMinimum(sugarString, 1);
+	    int amtSugar = readIntWithMinimum(sugarString, 1);
 	    
 	    //Read in amt chocolate
 	    final String chocolateString = inputOutput(System.getProperty("line.separator") + "Please enter the units of chocolate in the recipe: ");
-	    final int amtChocolate = readIntWithMinimum(chocolateString, 1);
+	    int amtChocolate = readIntWithMinimum(chocolateString, 1);
 	    
 	    final Recipe newRecipe = new Recipe();
 	    newRecipe.setName(name);

@@ -18,5 +18,4 @@ INDEX VERSION 1.127+C:\Towson\COSC 603\Projects\Project5\cosc603-shah-project5\.
 2449793579.index
 606802006.index
 2442888519.index
-1414724325.index
 1677593041.index
