@@ -44,14 +44,14 @@ public class Main {
 		}
         if(userInput == 0) System.exit(0);
 	}
-	private static void performRecipeAction(int userInput) {
+	private static void performInventoryCoffeeActions(int userInput) {
 
 		if(userInput == 1) addRecipe();
         if(userInput == 2) deleteRecipe();
         if(userInput == 3) editRecipe();
 		
 	}
-	private static void performInventoryCoffeeActions(int userInput) {
+	private static void performRecipeAction(int userInput) {
         if(userInput == 4) addInventory();
         if(userInput == 5) checkInventory();
         if(userInput == 6) makeCoffee();

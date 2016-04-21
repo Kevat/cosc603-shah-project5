@@ -69,3 +69,32 @@ This version of EclipsePro Test was compiled for Eclipse 3.7 but is running on E
 This version of Code Coverage was compiled for Eclipse 3.7 but is running on Eclipse 3.11.
 This version of Shared was compiled for Eclipse 3.7 but is running on Eclipse 3.11.
 
+
+!ENTRY org.eclipse.jface 2 0 2016-04-21 11:41:58.078
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2016-04-21 11:41:58.078
+!MESSAGE A conflict occurred for F5:
+Binding(F5,
+	ParameterizedCommand(Command(org.eclipse.debug.ui.commands.StepInto,Step Into,
+		Step into,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@4b975fdb,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.debug.ui.debugging,,,system)
+Binding(F5,
+	ParameterizedCommand(Command(org.eclipse.ui.file.refresh,Refresh,
+		Refresh the selected items,
+		Category(org.eclipse.ui.category.file,File,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@11c68269,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(F5,
+	ParameterizedCommand(Command(com.instantiations.assist.eclipse.junit.editor.commands.refresh,Refresh Tests,
+		Refresh Tests,
+		Category(com.instantiations.assist.eclipse.junit.editor.actions.category,CodePro,CodePro Test Editor actions,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@42c5edcd,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.jdt.ui.javaEditorScope,,,system)
