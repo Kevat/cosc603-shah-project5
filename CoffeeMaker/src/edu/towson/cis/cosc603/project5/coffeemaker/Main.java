@@ -24,52 +24,62 @@ public class Main {
         //Get user input
         int userInput = stringToInt(inputOutput("Please press the number that corresponds to what you would like the coffee maker to do."));
         
-        if(userInput == 1) addRecipe();
+        performUserAction(userInput);
+    }
+	/**
+	 * @param userInput
+	 */
+	private static void performUserAction(int userInput) {
+		if (userInput > 0 && userInput < 4)
+		{
+			performRecipeAction(userInput);
+		}
+		else if (userInput >= 4)
+		{
+			performInventoryCoffeeActions(userInput);
+		}
+		else if (userInput == 0)
+		{
+			System.exit(0);
+		}
+        if(userInput == 0) System.exit(0);
+	}
+	private static void performInventoryCoffeeActions(int userInput) {
+
+		if(userInput == 1) addRecipe();
         if(userInput == 2) deleteRecipe();
         if(userInput == 3) editRecipe();
+		
+	}
+	private static void performRecipeAction(int userInput) {
         if(userInput == 4) addInventory();
         if(userInput == 5) checkInventory();
         if(userInput == 6) makeCoffee();
-        if(userInput == 0) System.exit(0);
-    }
+		
+	}
 	public static void addRecipe() {
 	    //Read in recipe name
 	    String name = inputOutput("\nPlease enter the recipe name: ");
 	    
 	    //Read in recipe price
 	    String priceString = inputOutput("\nPlease enter the recipe price: $");
-	    int price = stringToInt(priceString);
-	    if(price < 0) {
-	    	mainMenu();
-	    }
+	    int price = readIntWithMinimum(priceString, 0);
 	    
 	    //Read in amt coffee
 	    String coffeeString = inputOutput("\nPlease enter the units of coffee in the recipe: ");
-	    int amtCoffee = stringToInt(coffeeString);
-	    if(amtCoffee < 0) {
-	    	mainMenu();
-	    }
+	    int amtCoffee = readIntWithMinimum(coffeeString, 0);
 	    
 	    //Read in amt milk
 	    String milkString = inputOutput("\nPlease enter the units of milk in the recipe: ");
-	    int amtMilk = stringToInt(milkString);
-	    if(amtMilk < 0) {
-	    	mainMenu();
-	    }
+	    int amtMilk = readIntWithMinimum(milkString, 0);
 	    
 	    //Read in amt sugar
 	    String sugarString = inputOutput("\nPlease enter the units of sugar in the recipe: ");
-	    int amtSugar = stringToInt(sugarString);
-	    if(amtSugar < 0) {
-	    	mainMenu();
-	    }
+	    int amtSugar = readIntWithMinimum(sugarString, 0);
 	    
 	    //Read in amt chocolate
 	    String chocolateString = inputOutput("\nPlease enter the units of chocolate in the recipe: ");
-	    int amtChocolate = stringToInt(chocolateString);
-	    if(amtChocolate < 0) {
-	    	mainMenu();
-	    }
+	    int amtChocolate = readIntWithMinimum(chocolateString, 0);
 	    
 	    boolean recipeAdded = false;
 		Recipe r = new Recipe();
@@ -88,11 +98,16 @@ public class Main {
 	    mainMenu();
     }
     
-    public static void deleteRecipe() {
+    private static int readIntWithMinimum(String inputString, int minimum) {
+    	int inputInt = stringToInt(inputString);
+	    if(inputInt < minimum) {
+	    	mainMenu();
+	    }
+	    return inputInt;
+	}
+	public static void deleteRecipe() {
         Recipe [] recipes = coffeeMaker.getRecipes();
-        for(int i = 0; i < recipes.length; i++) {
-            System.out.println((i+1) + ". " + recipes[i].getName());
-        }
+        showRecipes(recipes);
         String recipeToDeleteString = inputOutput("Please select the number of the recipe to delete.");
         int recipeToDelete = stringToInt(recipeToDeleteString) - 1;
 	    if(recipeToDelete < 0) {
@@ -109,14 +124,9 @@ public class Main {
     
     public static void editRecipe() {
         Recipe [] recipes = coffeeMaker.getRecipes();
-        for(int i = 0; i < recipes.length; i++) {
-            System.out.println((i+1) + ". " + recipes[i].getName());
-        }
+        showRecipes(recipes);
         String recipeToEditString = inputOutput("Please select the number of the recipe to edit.");
-        int recipeToEdit = stringToInt(recipeToEditString) -1;
-	    if(recipeToEdit < 0) {
-	    	mainMenu();
-	    }
+        int recipeToEdit = readIntWithMinimum(recipeToEditString, 1) -1;
         
         Recipe oldRecipe = recipes[recipeToEdit];
         
@@ -125,38 +135,23 @@ public class Main {
 	    
 	    //Read in recipe price
 	    String priceString = inputOutput("\nPlease enter the recipe price: $");
-	    int price = stringToInt(priceString);
-	    if(price < 0) {
-	    	mainMenu();
-	    }
+	    int price = readIntWithMinimum(priceString, 1);
 	    
 	    //Read in amt coffee
 	    String coffeeString = inputOutput("\nPlease enter the units of coffee in the recipe: ");
-	    int amtCoffee = stringToInt(coffeeString);
-	    if(amtCoffee < 0) {
-	    	mainMenu();
-	    }
+	    int amtCoffee = readIntWithMinimum(coffeeString, 1);
 	    
 	    //Read in amt milk
 	    String milkString = inputOutput("\nPlease enter the units of milk in the recipe: ");
-	    int amtMilk = stringToInt(milkString);
-	    if(amtMilk < 0) {
-	    	mainMenu();
-	    }
+	    int amtMilk = readIntWithMinimum(milkString, 1);
 	    
 	    //Read in amt sugar
 	    String sugarString = inputOutput("\nPlease enter the units of sugar in the recipe: ");
-	    int amtSugar = stringToInt(sugarString);
-	    if(amtSugar < 0) {
-	    	mainMenu();
-	    }
+	    int amtSugar = readIntWithMinimum(sugarString, 1);
 	    
 	    //Read in amt chocolate
 	    String chocolateString = inputOutput("\nPlease enter the units of chocolate in the recipe: ");
-	    int amtChocolate = stringToInt(chocolateString);
-	    if(amtChocolate < 0) {
-	    	mainMenu();
-	    }
+	    int amtChocolate = readIntWithMinimum(chocolateString, 1);
 	    
 	    Recipe newRecipe = new Recipe();
 	    newRecipe.setName(name);
@@ -173,6 +168,14 @@ public class Main {
         
         mainMenu();
     }
+	/**
+	 * @param recipes
+	 */
+	private static void showRecipes(Recipe[] recipes) {
+		for(int i = 0; i < recipes.length; i++) {
+            System.out.println((i+1) + ". " + recipes[i].getName());
+        }
+	}
     
     public static void addInventory() {
 	    //Read in amt coffee
@@ -215,9 +218,7 @@ public class Main {
     
     public static void makeCoffee() {
         Recipe [] recipes = coffeeMaker.getRecipes();
-        for(int i = 0; i < recipes.length; i++) {
-            System.out.println((i+1) + ". " + recipes[i].getName());
-        }
+        showRecipes(recipes);
         String recipeToPurchaseString = inputOutput("Please select the number of the recipe to purchase.");
         int recipeToPurchase = stringToInt(recipeToPurchaseString) -1;
 	    if(recipeToPurchase < 0) {
