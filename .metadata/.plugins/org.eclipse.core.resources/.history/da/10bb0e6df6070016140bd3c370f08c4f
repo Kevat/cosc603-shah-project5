@@ -1,0 +1,43 @@
+package edu.towson.cis.cosc603.project5.coffeemaker;
+
+import java.io.*;
+import org.junit.*;
+import static org.junit.Assert.*;
+
+public class InventoryTest {
+	Inventory i;
+	
+	@Before
+	public void setUp() {
+		i = new Inventory();
+	}
+	
+	@Test
+	public void setCoffee1() {
+		i.setCoffee(0);
+		assertEquals(0,i.getCoffee());
+	}
+
+	@Test
+	public void setMilk1() {
+		i.setMilk(0);
+		assertEquals(0,i.getMilk());
+	}
+
+	@Test
+	public void setSugar1() {
+		i.setSugar(0);
+		assertEquals(0,i.getSugar());
+	}
+
+	@Test
+	public void setChocolate1() {
+		i.setChocolate(0);
+		assertEquals(0,i.getChocolate());
+	}
+	
+	@After
+	public void tearDown() {
+		i = null;
+	}
+}

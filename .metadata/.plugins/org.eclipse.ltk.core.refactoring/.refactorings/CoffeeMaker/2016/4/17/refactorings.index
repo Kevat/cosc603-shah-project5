@@ -1,3 +1,7 @@
 1461250165197	Extract method 'ifRecipteDoesNotExist'
 1461250302280	Extract method 'performUserAction'
 1461250986145	Extract method 'showRecipes'
+1461259654465	Extract method 'showOptions'
+1461267665928	Extract method 'addRecipeToList'
+1461267997617	Extract method 'makeNewCoffeeMaker'
+1461268185249	Extract method 'editRecipeInList'

@@ -13,13 +13,7 @@ public class Main {
     private static CoffeeMaker coffeeMaker;
 
     public static void mainMenu() {
-        System.out.println("1. Add a recipe");
-        System.out.println("2. Delete a recipe");
-        System.out.println("3. Edit a recipe");
-        System.out.println("4. Add inventory");
-        System.out.println("5. Check inventory");
-        System.out.println("6. Make coffee");
-        System.out.println("0. Exit"+System.getProperty("line.separator"));
+        showOptions();
         
         //Get user input
         final int userInput = stringToInt(inputOutput("Please press the number that corresponds to what you would like the coffee maker to do."));
@@ -27,9 +21,21 @@ public class Main {
         performUserAction(userInput);
     }
 	/**
+	 * 
+	 */
+	protected static void showOptions() {
+		System.out.println("1. Add a recipe");
+        System.out.println("2. Delete a recipe");
+        System.out.println("3. Edit a recipe");
+        System.out.println("4. Add inventory");
+        System.out.println("5. Check inventory");
+        System.out.println("6. Make coffee");
+        System.out.println("0. Exit"+System.getProperty("line.separator"));
+	}
+	/**
 	 * @param userInput
 	 */
-	private static void performUserAction(int userInput) {
+	protected static void performUserAction(int userInput) {
 		if (userInput > 0 && userInput < 4)
 		{
 			performRecipeAction(userInput);
@@ -81,7 +87,21 @@ public class Main {
 	    final String chocolateString = inputOutput(System.getProperty("line.separator") + "Please enter the units of chocolate in the recipe: ");
 	    final int amtChocolate = readIntWithMinimum(chocolateString, 0);
 	    
-	    boolean recipeAdded = false;
+	    addRecipeToList(name, price, amtCoffee, amtMilk, amtSugar, amtChocolate);
+	    
+	    mainMenu();
+    }
+	/**
+	 * @param name
+	 * @param price
+	 * @param amtCoffee
+	 * @param amtMilk
+	 * @param amtSugar
+	 * @param amtChocolate
+	 */
+	protected static void addRecipeToList(final String name, final int price, final int amtCoffee, final int amtMilk,
+			final int amtSugar, final int amtChocolate) {
+		boolean recipeAdded = false;
 		final Recipe r = new Recipe();
 		r.setName(name);
 		r.setPrice(price);
@@ -97,9 +117,7 @@ public class Main {
     	} else {
     		System.out.println(name + "could not be added.");
     	}
-	    
-	    mainMenu();
-    }
+	}
     
     private static int readIntWithMinimum(String inputString, int minimum) {
     	final int inputInt = stringToInt(inputString);
@@ -159,7 +177,22 @@ public class Main {
 	    final String chocolateString = inputOutput(System.getProperty("line.separator") + "Please enter the units of chocolate in the recipe: ");
 	    final int amtChocolate = readIntWithMinimum(chocolateString, 1);
 	    
-	    final Recipe newRecipe = new Recipe();
+	    editRecipeInList(oldRecipe, name, price, amtCoffee, amtMilk, amtSugar, amtChocolate);
+        
+        mainMenu();
+    }
+	/**
+	 * @param oldRecipe
+	 * @param name
+	 * @param price
+	 * @param amtCoffee
+	 * @param amtMilk
+	 * @param amtSugar
+	 * @param amtChocolate
+	 */
+	protected static void editRecipeInList(final Recipe oldRecipe, final String name, final int price,
+			final int amtCoffee, final int amtMilk, final int amtSugar, final int amtChocolate) {
+		final Recipe newRecipe = new Recipe();
 	    newRecipe.setName(name);
 	    newRecipe.setPrice(price);
 	    newRecipe.setAmtCoffee(amtCoffee);
@@ -174,15 +207,13 @@ public class Main {
         } else {
         	System.out.println(oldRecipe.getName() + "could not be edited.");
         }
-        
-        mainMenu();
-    }
+	}
 	/**
 	 * @param recipes
 	 */
 	private static void showRecipes(Recipe[] recipes) {
 		for(int i = 0; i < recipes.length; i++) {
-            System.out.println((i+1) + ". " + recipes[i].getName());
+            System.out.println((i) + ". " + recipes[i].getName());
         }
 	}
     
@@ -287,8 +318,19 @@ public class Main {
      * @param args String[]
      */
     public static void main(String[] args) {
-	    coffeeMaker = new CoffeeMaker();
+	    makeNewCoffeeMaker();
 	    System.out.println("Welcome to the CoffeeMaker!" + System.getProperty("line.separator") );
 	    mainMenu();
+	}
+	/**
+	 * 
+	 */
+	protected static void makeNewCoffeeMaker() {
+		coffeeMaker = new CoffeeMaker();
+	}
+	
+	protected static void addRecipeObject(Recipe r1)
+	{
+		coffeeMaker.addRecipe(r1);
 	}
 }

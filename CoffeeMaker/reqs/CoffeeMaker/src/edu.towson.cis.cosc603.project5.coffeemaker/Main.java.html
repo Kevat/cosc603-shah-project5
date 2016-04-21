@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../.resources/report.gif" type="image/gif"/><title>Main.java</title><link rel="stylesheet" href="../../../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../.sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">CoffeeMaker (Apr 21, 2016 4:01:21 PM)</a> &gt; <a href="../../index.html" class="el_group">CoffeeMaker</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">edu.towson.cis.cosc603.project5.coffeemaker</a> &gt; <span class="el_source">Main.java</span></div><h1>Main.java</h1><pre class="source lang-java linenums">package edu.towson.cis.cosc603.project5.coffeemaker;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+/**
+ * Starts the console UI for the CoffeeMaker
+ * @author Josh
+ * @version $Revision: 1.0 $
+ */
+<span class="nc" id="L12">public class Main {</span>
+    private static CoffeeMaker coffeeMaker;
+
+    public static void mainMenu() {
+<span class="nc" id="L16">        showOptions();</span>
+        
+        //Get user input
+<span class="nc" id="L19">        final int userInput = stringToInt(inputOutput(&quot;Please press the number that corresponds to what you would like the coffee maker to do.&quot;));</span>
+        
+<span class="nc" id="L21">        performUserAction(userInput);</span>
+<span class="nc" id="L22">    }</span>
+	/**
+	 * 
+	 */
+	protected static void showOptions() {
+<span class="fc" id="L27">		System.out.println(&quot;1. Add a recipe&quot;);</span>
+<span class="fc" id="L28">        System.out.println(&quot;2. Delete a recipe&quot;);</span>
+<span class="fc" id="L29">        System.out.println(&quot;3. Edit a recipe&quot;);</span>
+<span class="fc" id="L30">        System.out.println(&quot;4. Add inventory&quot;);</span>
+<span class="fc" id="L31">        System.out.println(&quot;5. Check inventory&quot;);</span>
+<span class="fc" id="L32">        System.out.println(&quot;6. Make coffee&quot;);</span>
+<span class="fc" id="L33">        System.out.println(&quot;0. Exit&quot;+System.getProperty(&quot;line.separator&quot;));</span>
+<span class="fc" id="L34">	}</span>
+	/**
+	 * @param userInput
+	 */
+	protected static void performUserAction(int userInput) {
+<span class="nc bnc" id="L39" title="All 4 branches missed.">		if (userInput &gt; 0 &amp;&amp; userInput &lt; 4)</span>
+		{
+<span class="nc" id="L41">			performRecipeAction(userInput);</span>
+<span class="nc" id="L42">		}</span>
+<span class="nc bnc" id="L43" title="All 2 branches missed.">		else if (userInput &gt;= 4)</span>
+		{
+<span class="nc" id="L45">			performInventoryCoffeeActions(userInput);</span>
+<span class="nc" id="L46">		}</span>
+<span class="nc bnc" id="L47" title="All 2 branches missed.">		else if (userInput == 0)</span>
+		{
+<span class="nc" id="L49">			System.exit(0);</span>
+		}
+<span class="nc bnc" id="L51" title="All 2 branches missed.">        if(userInput == 0) System.exit(0);</span>
+<span class="nc" id="L52">	}</span>
+	private static void performRecipeAction(int userInput) {
+
+<span class="nc bnc" id="L55" title="All 2 branches missed.">		if(userInput == 1) addRecipe();</span>
+<span class="nc bnc" id="L56" title="All 2 branches missed.">        if(userInput == 2) deleteRecipe();</span>
+<span class="nc bnc" id="L57" title="All 2 branches missed.">        if(userInput == 3) editRecipe();</span>
+		
+<span class="nc" id="L59">	}</span>
+	private static void performInventoryCoffeeActions(int userInput) {
+<span class="nc bnc" id="L61" title="All 2 branches missed.">        if(userInput == 4) addInventory();</span>
+<span class="nc bnc" id="L62" title="All 2 branches missed.">        if(userInput == 5) checkInventory();</span>
+<span class="nc bnc" id="L63" title="All 2 branches missed.">        if(userInput == 6) makeCoffee();</span>
+		
+<span class="nc" id="L65">	}</span>
+	public static void addRecipe() {
+	    //Read in recipe name
+<span class="nc" id="L68">	    final String name = inputOutput(System.getProperty(&quot;line.separator&quot;) + &quot;Please enter the recipe name: &quot;);</span>
+	    
+	    //Read in recipe price
+<span class="nc" id="L71">	    final String priceString = inputOutput(System.getProperty(&quot;line.separator&quot;) + &quot;Please enter the recipe price: $&quot;);</span>
+<span class="nc" id="L72">	    final int price = readIntWithMinimum(priceString, 0);</span>
+	    
+	    //Read in amt coffee
+<span class="nc" id="L75">	    final String coffeeString = inputOutput(System.getProperty(&quot;line.separator&quot;) + &quot;Please enter the units of coffee in the recipe: &quot;);</span>
+<span class="nc" id="L76">	    final int amtCoffee = readIntWithMinimum(coffeeString, 0);</span>
+	    
+	    //Read in amt milk
+<span class="nc" id="L79">	    final String milkString = inputOutput(System.getProperty(&quot;line.separator&quot;) + &quot;Please enter the units of milk in the recipe: &quot;);</span>
+<span class="nc" id="L80">	    final int amtMilk = readIntWithMinimum(milkString, 0);</span>
+	    
+	    //Read in amt sugar
+<span class="nc" id="L83">	    final String sugarString = inputOutput(System.getProperty(&quot;line.separator&quot;) + &quot;Please enter the units of sugar in the recipe: &quot;);</span>
+<span class="nc" id="L84">	    final int amtSugar = readIntWithMinimum(sugarString, 0);</span>
+	    
+	    //Read in amt chocolate
+<span class="nc" id="L87">	    final String chocolateString = inputOutput(System.getProperty(&quot;line.separator&quot;) + &quot;Please enter the units of chocolate in the recipe: &quot;);</span>
+<span class="nc" id="L88">	    final int amtChocolate = readIntWithMinimum(chocolateString, 0);</span>
+	    
+<span class="nc" id="L90">	    addRecipeToList(name, price, amtCoffee, amtMilk, amtSugar, amtChocolate);</span>
+	    
+<span class="nc" id="L92">	    mainMenu();</span>
+<span class="nc" id="L93">    }</span>
+	/**
+	 * @param name
+	 * @param price
+	 * @param amtCoffee
+	 * @param amtMilk
+	 * @param amtSugar
+	 * @param amtChocolate
+	 */
+	protected static void addRecipeToList(final String name, final int price, final int amtCoffee, final int amtMilk,
+			final int amtSugar, final int amtChocolate) {
+<span class="fc" id="L104">		boolean recipeAdded = false;</span>
+<span class="fc" id="L105">		final Recipe r = new Recipe();</span>
+<span class="fc" id="L106">		r.setName(name);</span>
+<span class="fc" id="L107">		r.setPrice(price);</span>
+<span class="fc" id="L108">		r.setAmtCoffee(amtCoffee);</span>
+<span class="fc" id="L109">		r.setAmtMilk(amtMilk);</span>
+<span class="fc" id="L110">		r.setAmtSugar(amtSugar);</span>
+<span class="fc" id="L111">		r.setAmtChocolate(amtChocolate);</span>
+		   
+<span class="fc" id="L113">		recipeAdded = coffeeMaker.addRecipe(r);</span>
+	    
+<span class="pc bpc" id="L115" title="1 of 2 branches missed.">	    if(recipeAdded) {</span>
+<span class="fc" id="L116">	    	System.out.println(name + &quot; successfully added.&quot;);</span>
+<span class="fc" id="L117">    	} else {</span>
+<span class="nc" id="L118">    		System.out.println(name + &quot;could not be added.&quot;);</span>
+    	}
+<span class="fc" id="L120">	}</span>
+    
+    private static int readIntWithMinimum(String inputString, int minimum) {
+<span class="nc" id="L123">    	final int inputInt = stringToInt(inputString);</span>
+<span class="nc bnc" id="L124" title="All 2 branches missed.">	    if(inputInt &lt; minimum) {</span>
+<span class="nc" id="L125">	    	mainMenu();</span>
+	    }
+<span class="nc" id="L127">	    return inputInt;</span>
+	}
+	public static void deleteRecipe() {
+<span class="nc" id="L130">        final Recipe [] recipes = coffeeMaker.getRecipes();</span>
+<span class="nc" id="L131">        showRecipes(recipes);</span>
+<span class="nc" id="L132">        final String recipeToDeleteString = inputOutput(&quot;Please select the number of the recipe to delete.&quot;);</span>
+<span class="nc" id="L133">        final int recipeToDelete = stringToInt(recipeToDeleteString) - 1;</span>
+<span class="nc bnc" id="L134" title="All 2 branches missed.">	    if(recipeToDelete &lt; 0) {</span>
+<span class="nc" id="L135">	    	mainMenu();</span>
+	    }
+        
+<span class="nc" id="L138">        final boolean recipeDeleted = coffeeMaker.deleteRecipe(recipes[recipeToDelete]);</span>
+        
+<span class="nc bnc" id="L140" title="All 2 branches missed.">        if(recipeDeleted) {</span>
+<span class="nc" id="L141">        	System.out.println(recipes[recipeToDelete].getName() + &quot; successfully deleted.&quot;);</span>
+<span class="nc" id="L142">        } else {</span>
+<span class="nc" id="L143">        	System.out.println(recipes[recipeToDelete].getName() + &quot;could not be deleted.&quot;);</span>
+        }
+        
+<span class="nc" id="L146">        mainMenu();</span>
+<span class="nc" id="L147">    }</span>
+    
+    public static void editRecipe() {
+<span class="nc" id="L150">        final Recipe [] recipes = coffeeMaker.getRecipes();</span>
+<span class="nc" id="L151">        showRecipes(recipes);</span>
+<span class="nc" id="L152">        final String recipeToEditString = inputOutput(&quot;Please select the number of the recipe to edit.&quot;);</span>
+<span class="nc" id="L153">        final int recipeToEdit = readIntWithMinimum(recipeToEditString, 1) -1;</span>
+        
+<span class="nc" id="L155">        final Recipe oldRecipe = recipes[recipeToEdit];</span>
+        
+	    //Read in recipe name
+<span class="nc" id="L158">        final String name = inputOutput(System.getProperty(&quot;line.separator&quot;) + &quot;Please enter the recipe name: &quot;);</span>
+	    
+	    //Read in recipe price
+<span class="nc" id="L161">        final String priceString = inputOutput(System.getProperty(&quot;line.separator&quot;) + &quot;Please enter the recipe price: $&quot;);</span>
+<span class="nc" id="L162">        final int price = readIntWithMinimum(priceString, 1);</span>
+	    
+	    //Read in amt coffee
+<span class="nc" id="L165">        final String coffeeString = inputOutput(System.getProperty(&quot;line.separator&quot;) + &quot;Please enter the units of coffee in the recipe: &quot;);</span>
+<span class="nc" id="L166">        final int amtCoffee = readIntWithMinimum(coffeeString, 1);</span>
+	    
+	    //Read in amt milk
+<span class="nc" id="L169">        final String milkString = inputOutput(System.getProperty(&quot;line.separator&quot;) + &quot;Please enter the units of milk in the recipe: &quot;);</span>
+<span class="nc" id="L170">	    final int amtMilk = readIntWithMinimum(milkString, 1);</span>
+	    
+	    //Read in amt sugar
+<span class="nc" id="L173">	    final String sugarString = inputOutput(System.getProperty(&quot;line.separator&quot;) + &quot;Please enter the units of sugar in the recipe: &quot;);</span>
+<span class="nc" id="L174">	    final int amtSugar = readIntWithMinimum(sugarString, 1);</span>
+	    
+	    //Read in amt chocolate
+<span class="nc" id="L177">	    final String chocolateString = inputOutput(System.getProperty(&quot;line.separator&quot;) + &quot;Please enter the units of chocolate in the recipe: &quot;);</span>
+<span class="nc" id="L178">	    final int amtChocolate = readIntWithMinimum(chocolateString, 1);</span>
+	    
+<span class="nc" id="L180">	    editRecipeInList(oldRecipe, name, price, amtCoffee, amtMilk, amtSugar, amtChocolate);</span>
+        
+<span class="nc" id="L182">        mainMenu();</span>
+<span class="nc" id="L183">    }</span>
+	/**
+	 * @param oldRecipe
+	 * @param name
+	 * @param price
+	 * @param amtCoffee
+	 * @param amtMilk
+	 * @param amtSugar
+	 * @param amtChocolate
+	 */
+	protected static void editRecipeInList(final Recipe oldRecipe, final String name, final int price,
+			final int amtCoffee, final int amtMilk, final int amtSugar, final int amtChocolate) {
+<span class="fc" id="L195">		final Recipe newRecipe = new Recipe();</span>
+<span class="fc" id="L196">	    newRecipe.setName(name);</span>
+<span class="fc" id="L197">	    newRecipe.setPrice(price);</span>
+<span class="fc" id="L198">	    newRecipe.setAmtCoffee(amtCoffee);</span>
+<span class="fc" id="L199">	    newRecipe.setAmtMilk(amtMilk);</span>
+<span class="fc" id="L200">	    newRecipe.setAmtSugar(amtSugar);</span>
+<span class="fc" id="L201">	    newRecipe.setAmtChocolate(amtChocolate);</span>
+        
+<span class="fc" id="L203">	    final boolean recipeEdited = coffeeMaker.editRecipe(oldRecipe, newRecipe);</span>
+        
+<span class="pc bpc" id="L205" title="1 of 2 branches missed.">        if(recipeEdited) {</span>
+<span class="fc" id="L206">        	System.out.println(oldRecipe.getName() + &quot; successfully edited.&quot;);</span>
+<span class="fc" id="L207">        } else {</span>
+<span class="nc" id="L208">        	System.out.println(oldRecipe.getName() + &quot;could not be edited.&quot;);</span>
+        }
+<span class="fc" id="L210">	}</span>
+	/**
+	 * @param recipes
+	 */
+	private static void showRecipes(Recipe[] recipes) {
+<span class="nc bnc" id="L215" title="All 2 branches missed.">		for(int i = 0; i &lt; recipes.length; i++) {</span>
+<span class="nc" id="L216">            System.out.println((i) + &quot;. &quot; + recipes[i].getName());</span>
+        }
+<span class="nc" id="L218">	}</span>
+    
+    public static void addInventory() {
+	    //Read in amt coffee
+<span class="nc" id="L222">    	final String coffeeString = inputOutput(System.getProperty(&quot;line.separator&quot;) + &quot;Please enter the units of coffee to add: &quot;);</span>
+<span class="nc" id="L223">    	final int amtCoffee = stringToInt(coffeeString);</span>
+<span class="nc bnc" id="L224" title="All 2 branches missed.">	    if(amtCoffee &lt; 0) {</span>
+<span class="nc" id="L225">	    	mainMenu();</span>
+	    }
+	    
+	    //Read in amt milk
+<span class="nc" id="L229">	    final String milkString = inputOutput(System.getProperty(&quot;line.separator&quot;) + &quot;Please enter the units of milk to add: &quot;);</span>
+<span class="nc" id="L230">	    final int amtMilk = stringToInt(milkString);</span>
+<span class="nc bnc" id="L231" title="All 2 branches missed.">	    if(amtMilk &lt; 0) {</span>
+<span class="nc" id="L232">	    	mainMenu();</span>
+	    }
+	    
+	    //Read in amt sugar
+<span class="nc" id="L236">	    final String sugarString = inputOutput(System.getProperty(&quot;line.separator&quot;) + &quot;Please enter the units of sugar to add: &quot;);</span>
+<span class="nc" id="L237">	    final int amtSugar = stringToInt(sugarString);</span>
+<span class="nc bnc" id="L238" title="All 2 branches missed.">	    if(amtSugar &lt; 0) {</span>
+<span class="nc" id="L239">	    	mainMenu();</span>
+	    }
+	    
+	    //Read in amt chocolate
+<span class="nc" id="L243">	    final String chocolateString = inputOutput(System.getProperty(&quot;line.separator&quot;) + &quot;Please enter the units of chocolate to add: &quot;);</span>
+<span class="nc" id="L244">	    final int amtChocolate = stringToInt(chocolateString);</span>
+<span class="nc bnc" id="L245" title="All 2 branches missed.">	    if(amtChocolate &lt; 0) {</span>
+<span class="nc" id="L246">	    	mainMenu();</span>
+	    }
+	    
+<span class="nc" id="L249">        coffeeMaker.addInventory(amtCoffee, amtMilk, amtSugar, amtChocolate);</span>
+<span class="nc" id="L250">        mainMenu();</span>
+<span class="nc" id="L251">    }</span>
+    
+    public static void checkInventory() {
+<span class="nc" id="L254">    	final Inventory inventory = coffeeMaker.checkInventory();</span>
+<span class="nc" id="L255">        System.out.println(inventory.toString());</span>
+<span class="nc" id="L256">        mainMenu();</span>
+<span class="nc" id="L257">    }</span>
+    
+    public static void makeCoffee() {
+<span class="nc" id="L260">    	final Recipe [] recipes = coffeeMaker.getRecipes();</span>
+<span class="nc" id="L261">        showRecipes(recipes);</span>
+<span class="nc" id="L262">        final String recipeToPurchaseString = inputOutput(&quot;Please select the number of the recipe to purchase.&quot;);</span>
+<span class="nc" id="L263">        final int recipeToPurchase = stringToInt(recipeToPurchaseString) -1;</span>
+<span class="nc bnc" id="L264" title="All 2 branches missed.">	    if(recipeToPurchase &lt; 0) {</span>
+<span class="nc" id="L265">	    	mainMenu();</span>
+	    }
+        
+<span class="nc" id="L268">	    final String amountPaid = inputOutput(&quot;Please enter the amount you wish to pay&quot;);</span>
+<span class="nc" id="L269">	    final int amountToPay = stringToInt(amountPaid);</span>
+<span class="nc bnc" id="L270" title="All 2 branches missed.">	    if(amountToPay &lt; 0) {</span>
+<span class="nc" id="L271">	    	mainMenu();</span>
+	    }
+        
+<span class="nc" id="L274">	    final Recipe recipe = recipes[recipeToPurchase];</span>
+<span class="nc" id="L275">	    final int change = coffeeMaker.makeCoffee(recipe, amountToPay);</span>
+        
+<span class="nc" id="L277">        System.out.println(&quot;Your change is: &quot; + change + System.getProperty(&quot;line.separator&quot;));</span>
+<span class="nc" id="L278">        mainMenu();</span>
+<span class="nc" id="L279">    }</span>
+    
+    /**
+     * Method inputOutput.
+     * @param message String
+     * @return String
+     */
+    public static String inputOutput(String message) {
+<span class="nc" id="L287">        System.out.println(message);</span>
+<span class="nc" id="L288">        final BufferedReader br = new BufferedReader(new InputStreamReader(System.in));</span>
+<span class="nc" id="L289">	    String returnString = &quot;&quot;;</span>
+	    try {
+<span class="nc" id="L291">	        returnString = br.readLine();</span>
+<span class="nc" id="L292">	    }</span>
+<span class="nc" id="L293">	    catch (IOException e){</span>
+<span class="nc" id="L294">	        System.out.println(&quot;Error reading in value&quot;);</span>
+<span class="nc" id="L295">	        mainMenu();</span>
+	    }
+<span class="nc" id="L297">	    return returnString;</span>
+    }
+    
+    /**
+     * Method stringToInt.
+     * @param value String
+     * @return int
+     */
+    private static int stringToInt(String value) {
+<span class="nc" id="L306">        int returnInt = -1;</span>
+        try {
+<span class="nc" id="L308">            returnInt = Integer.parseInt(value);</span>
+<span class="nc" id="L309">        }</span>
+<span class="nc" id="L310">        catch (NumberFormatException e) {</span>
+<span class="nc" id="L311">            System.out.println(&quot;Please input an integer&quot; + System.getProperty(&quot;line.separator&quot;) );</span>
+        }
+<span class="nc" id="L313">        return returnInt;</span>
+    }
+    
+    /**
+     * Method main.
+     * @param args String[]
+     */
+    public static void main(String[] args) {
+<span class="nc" id="L321">	    makeNewCoffeeMaker();</span>
+<span class="nc" id="L322">	    System.out.println(&quot;Welcome to the CoffeeMaker!&quot; + System.getProperty(&quot;line.separator&quot;) );</span>
+<span class="nc" id="L323">	    mainMenu();</span>
+<span class="nc" id="L324">	}</span>
+	/**
+	 * 
+	 */
+	protected static void makeNewCoffeeMaker() {
+<span class="fc" id="L329">		coffeeMaker = new CoffeeMaker();</span>
+<span class="fc" id="L330">	}</span>
+	
+	protected static void addRecipeObject(Recipe r1)
+	{
+<span class="fc" id="L334">		coffeeMaker.addRecipe(r1);</span>
+<span class="fc" id="L335">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span>CoffeeMaker (Apr 21, 2016 4:01:21 PM)</div></body></html>

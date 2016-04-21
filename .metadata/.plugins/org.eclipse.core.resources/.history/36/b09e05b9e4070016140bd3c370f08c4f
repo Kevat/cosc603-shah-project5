@@ -1,0 +1,19 @@
+package edu.towson.cis.cosc603.project5.coffeemaker;
+
+import org.junit.*;
+
+public class MainTest {
+	@Before
+	public void setUp() {
+		
+	}
+	
+	public void checkOptions1() {
+		
+	}
+	
+	@After
+	public void tearDown() {
+	
+	}
+}

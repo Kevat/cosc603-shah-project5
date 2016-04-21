@@ -1,0 +1,49 @@
+package edu.towson.cis.cosc603.project5.coffeemaker;
+
+import java.io.*;
+import org.junit.*;
+import static org.junit.Assert.*;
+
+public class MainTest {
+	//Testing variables
+	private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+	private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
+	ByteArrayInputStream in = new ByteArrayInputStream("My string".getBytes());
+	
+	@Before
+	public void setUp() {
+	    System.setOut(new PrintStream(outContent));
+	    System.setErr(new PrintStream(errContent));
+	}
+	
+	@Test
+	public void checkOptions1() {
+		//Main.showOptions();
+		Main.mainMenu();
+		
+		String outStr = outContent.toString();
+		assertTrue(outStr.contains("1. Add a recipe"));
+		assertTrue(outStr.contains("2. Delete a recipe"));
+		assertTrue(outStr.contains("3. Edit a recipe"));
+		assertTrue(outStr.contains("4. Add inventory"));
+		assertTrue(outStr.contains("5. Check inventory"));
+		assertTrue(outStr.contains("6. Make coffee"));
+		assertTrue(outStr.contains("0. Exit"));
+		assertTrue(outStr.contains("0. Exit"));
+		
+		in = new ByteArrayInputStream("0".getBytes());
+		System.setIn(in);
+	}
+	
+	@Test
+	public void performUserAction1() {
+		
+	}
+	
+	@After
+	public void tearDown() {
+	    System.setOut(System.out);
+	    System.setErr(System.err);
+		System.setIn(System.in);
+	}
+}

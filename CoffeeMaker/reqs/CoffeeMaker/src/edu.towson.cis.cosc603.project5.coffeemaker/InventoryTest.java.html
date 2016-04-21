@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../.resources/report.gif" type="image/gif"/><title>InventoryTest.java</title><link rel="stylesheet" href="../../../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../.sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">CoffeeMaker (Apr 21, 2016 4:01:21 PM)</a> &gt; <a href="../../index.html" class="el_group">CoffeeMaker</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">edu.towson.cis.cosc603.project5.coffeemaker</a> &gt; <span class="el_source">InventoryTest.java</span></div><h1>InventoryTest.java</h1><pre class="source lang-java linenums">package edu.towson.cis.cosc603.project5.coffeemaker;
+
+import java.io.*;
+import org.junit.*;
+import static org.junit.Assert.*;
+
+<span class="fc" id="L7">public class InventoryTest {</span>
+	Inventory i;
+	
+	@Before
+	public void setUp() {
+<span class="fc" id="L12">		i = new Inventory();</span>
+<span class="fc" id="L13">	}</span>
+	
+	@Test
+	public void setCoffee1() {
+<span class="fc" id="L17">		i.setCoffee(-10);</span>
+<span class="fc" id="L18">		assertEquals(0,i.getCoffee());</span>
+<span class="fc" id="L19">	}</span>
+
+	@Test
+	public void setMilk1() {
+<span class="fc" id="L23">		i.setMilk(-10);</span>
+<span class="fc" id="L24">		assertEquals(0,i.getMilk());</span>
+<span class="fc" id="L25">	}</span>
+
+	@Test
+	public void setSugar1() {
+<span class="fc" id="L29">		i.setSugar(-10);</span>
+<span class="fc" id="L30">		assertEquals(0,i.getSugar());</span>
+<span class="fc" id="L31">	}</span>
+
+	@Test
+	public void setChocolate1() {
+<span class="fc" id="L35">		i.setChocolate(-10);</span>
+<span class="fc" id="L36">		assertEquals(0,i.getChocolate());</span>
+<span class="fc" id="L37">	}</span>
+	
+	@Test
+	public void toString1() {
+<span class="fc" id="L41">		String expectedStr = &quot;Coffee: 15&quot; + System.getProperty(&quot;line.separator&quot;) +</span>
+<span class="fc" id="L42">				&quot;Milk: 15&quot; + System.getProperty(&quot;line.separator&quot;) +</span>
+<span class="fc" id="L43">				&quot;Sugar: 15&quot; + System.getProperty(&quot;line.separator&quot;) +</span>
+<span class="fc" id="L44">				&quot;Chocolate: 15&quot; + System.getProperty(&quot;line.separator&quot;);</span>
+<span class="fc" id="L45">		String returnStr = i.toString();</span>
+<span class="fc" id="L46">		assertEquals(expectedStr, returnStr);</span>
+<span class="fc" id="L47">	}</span>
+	
+	@After
+	public void tearDown() {
+<span class="fc" id="L51">		i = null;</span>
+<span class="fc" id="L52">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span>CoffeeMaker (Apr 21, 2016 4:01:21 PM)</div></body></html>

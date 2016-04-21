@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="CoffeeMaker" project="CoffeeMaker" tests="20" started="7" failures="0" errors="0" ignored="0">
+  <testsuite name="edu.towson.cis.cosc603.project5.coffeemaker.InventoryTest" time="0.0">
+    <testcase name="setCoffee1" classname="edu.towson.cis.cosc603.project5.coffeemaker.InventoryTest" time="0.0"/>
+    <testcase name="setChocolate1" classname="edu.towson.cis.cosc603.project5.coffeemaker.InventoryTest" time="0.0"/>
+    <testcase name="setSugar1" classname="edu.towson.cis.cosc603.project5.coffeemaker.InventoryTest" time="0.0"/>
+    <testcase name="toString1" classname="edu.towson.cis.cosc603.project5.coffeemaker.InventoryTest" time="0.0"/>
+    <testcase name="setMilk1" classname="edu.towson.cis.cosc603.project5.coffeemaker.InventoryTest" time="0.0"/>
+  </testsuite>
+  <testsuite name="edu.towson.cis.cosc603.project5.coffeemaker.MainTest" incomplete="true">
+    <testcase name="checkOptions1" classname="edu.towson.cis.cosc603.project5.coffeemaker.MainTest" time="0.0"/>
+    <testcase name="addRecipeToList1" classname="edu.towson.cis.cosc603.project5.coffeemaker.MainTest" incomplete="true"/>
+  </testsuite>
+  <testsuite name="edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest" incomplete="true">
+    <testcase name="testAddRecipe1" classname="edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest" incomplete="true"/>
+    <testcase name="testAddRecipe2" classname="edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest" incomplete="true"/>
+    <testcase name="testAddRecipe3" classname="edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest" incomplete="true"/>
+    <testcase name="testEditRecipe1" classname="edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest" incomplete="true"/>
+    <testcase name="testEditRecipe2" classname="edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest" incomplete="true"/>
+    <testcase name="testPurchaseBeverage1" classname="edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest" incomplete="true"/>
+    <testcase name="testPurchaseBeverage2" classname="edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest" incomplete="true"/>
+    <testcase name="testPurchaseBeverage3" classname="edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest" incomplete="true"/>
+    <testcase name="testDeleteRecipe1" classname="edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest" incomplete="true"/>
+    <testcase name="testDeleteRecipe2" classname="edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest" incomplete="true"/>
+    <testcase name="testCheckInventory1" classname="edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest" incomplete="true"/>
+    <testcase name="testAddInventory1" classname="edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest" incomplete="true"/>
+    <testcase name="testAddInventory2" classname="edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest" incomplete="true"/>
+  </testsuite>
+</testrun>
