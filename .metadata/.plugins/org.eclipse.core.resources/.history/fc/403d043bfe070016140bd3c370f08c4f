@@ -22,7 +22,7 @@ public class CoffeeMakerTest extends TestCase {
 		r1.setAmtCoffee(6);
 		r1.setAmtMilk(1);
 		r1.setAmtSugar(1);
-		r1.setAmtChocolate(1);
+		r1.setAmtChocolate(0);
 
 		r2 = new Recipe();
 		r2.setName("Coffee2");
@@ -132,7 +132,7 @@ public class CoffeeMakerTest extends TestCase {
 		assertEquals(14, i.getCoffee());
 		assertEquals(19,i.getMilk());
 		assertEquals(19,i.getSugar());
-		assertEquals(19,i.getChocolate());
+		assertEquals(20,i.getChocolate());
 	}
 
 	@Test
