@@ -40,12 +40,6 @@ public class InventoryTest {
 		i.setChocolate(0);
 		assertEquals(0,i.getChocolate());
 	}
-
-	@Test
-	public void setChocolate3() {
-		i.setChocolate(10);
-		assertEquals(10,i.getChocolate());
-	}
 	
 	@Test
 	public void toString1() {

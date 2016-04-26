@@ -153,14 +153,14 @@ public class CoffeeMakerTest extends TestCase {
 		assertTrue(cm.addInventory(5, 5, 5, 5));
 		assertEquals(0, cm.makeCoffee(r1, 50));
 		i = cm.checkInventory();
-		assertEquals(14, i.getCoffee());
-		assertEquals(19,i.getMilk());
-		assertEquals(19,i.getSugar());
-		assertEquals(19,i.getChocolate());
+		assertEquals(20, i.getCoffee());
+		assertEquals(20,i.getMilk());
+		assertEquals(20,i.getSugar());
+		assertEquals(20,i.getChocolate());
 	}
 	
 	@Test
-	public void testPurchaseBeverage4() {
+	public void testPurchaseBeverage3() {
 		assertTrue(cm.addRecipe(r4));
 		assertTrue(cm.addInventory(5, 5, 5, 5));
 		assertEquals(60, cm.makeCoffee(r4, 60));

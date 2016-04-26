@@ -153,8 +153,8 @@ public class CoffeeMakerTest extends TestCase {
 		assertTrue(cm.addInventory(5, 5, 5, 5));
 		assertEquals(0, cm.makeCoffee(r1, 50));
 		i = cm.checkInventory();
-		assertEquals(14, i.getCoffee());
-		assertEquals(19,i.getMilk());
+		assertEquals(10, i.getCoffee());
+		assertEquals(14,i.getMilk());
 		assertEquals(19,i.getSugar());
 		assertEquals(19,i.getChocolate());
 	}

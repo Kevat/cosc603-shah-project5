@@ -1,5 +1,6 @@
 package edu.towson.cis.cosc603.project5.coffeemaker;
 
+import java.io.*;
 import org.junit.*;
 import static org.junit.Assert.*;
 
@@ -33,18 +34,6 @@ public class InventoryTest {
 	public void setChocolate1() {
 		i.setChocolate(-10);
 		assertEquals(0,i.getChocolate());
-	}
-	
-	@Test
-	public void setChocolate2() {
-		i.setChocolate(0);
-		assertEquals(0,i.getChocolate());
-	}
-
-	@Test
-	public void setChocolate3() {
-		i.setChocolate(10);
-		assertEquals(10,i.getChocolate());
 	}
 	
 	@Test

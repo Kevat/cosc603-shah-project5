@@ -36,18 +36,6 @@ public class InventoryTest {
 	}
 	
 	@Test
-	public void setChocolate2() {
-		i.setChocolate(0);
-		assertEquals(0,i.getChocolate());
-	}
-
-	@Test
-	public void setChocolate3() {
-		i.setChocolate(10);
-		assertEquals(10,i.getChocolate());
-	}
-	
-	@Test
 	public void toString1() {
 		String expectedStr = "Coffee: 15" + System.getProperty("line.separator") +
 				"Milk: 15" + System.getProperty("line.separator") +

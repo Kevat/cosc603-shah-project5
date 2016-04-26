@@ -253,3 +253,29 @@ java.util.ConcurrentModificationException
 	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:669)
 	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:608)
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1515)
+!SESSION 2016-04-26 14:56:41.729 -----------------------------------------------
+eclipse.buildId=4.5.2.M20160212-1500
+java.version=1.8.0_77
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-04-26 14:57:02.352
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\kevat.shah'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.pitest.pitclipse.core 1 0 2016-04-26 14:57:08.571
+!MESSAGE Classpath: [C:\Towson\COSC 603\Projects\Project5\cosc603-shah-project5\CoffeeMaker\bin, C:\Towson\COSC 603\Projects\Project5\cosc603-shah-project5\CoffeeMaker\libs\junit-4.12.jar, C:\Towson\COSC 603\Projects\Project5\cosc603-shah-project5\CoffeeMaker\libs\hamcrest-core-1.3.jar, C:\Eclipse\plugins\org.pitest.command-line-osgi_1.1.5.jar, C:\Eclipse\plugins\org.pitest.html-report-osgi_1.1.5.jar, C:\Eclipse\plugins\org.pitest.osgi_1.1.5.jar, C:\Eclipse\plugins\org.pitest.pitrunner_1.1.4.201604131555.jar, C:\Eclipse\plugins\org.pitest.guava-shade-osgi_18.0.0.jar]
+
+!ENTRY org.pitest.pitclipse.core 1 0 2016-04-26 15:00:12.043
+!MESSAGE Classpath: [C:\Towson\COSC 603\Projects\Project5\cosc603-shah-project5\CoffeeMaker\bin, C:\Towson\COSC 603\Projects\Project5\cosc603-shah-project5\CoffeeMaker\libs\junit-4.12.jar, C:\Towson\COSC 603\Projects\Project5\cosc603-shah-project5\CoffeeMaker\libs\hamcrest-core-1.3.jar, C:\Eclipse\plugins\org.pitest.command-line-osgi_1.1.5.jar, C:\Eclipse\plugins\org.pitest.html-report-osgi_1.1.5.jar, C:\Eclipse\plugins\org.pitest.osgi_1.1.5.jar, C:\Eclipse\plugins\org.pitest.pitrunner_1.1.4.201604131555.jar, C:\Eclipse\plugins\org.pitest.guava-shade-osgi_18.0.0.jar]
+
+!ENTRY org.pitest.pitclipse.core 1 0 2016-04-26 15:03:11.407
+!MESSAGE Classpath: [C:\Towson\COSC 603\Projects\Project5\cosc603-shah-project5\CoffeeMaker\bin, C:\Towson\COSC 603\Projects\Project5\cosc603-shah-project5\CoffeeMaker\libs\junit-4.12.jar, C:\Towson\COSC 603\Projects\Project5\cosc603-shah-project5\CoffeeMaker\libs\hamcrest-core-1.3.jar, C:\Eclipse\plugins\org.pitest.command-line-osgi_1.1.5.jar, C:\Eclipse\plugins\org.pitest.html-report-osgi_1.1.5.jar, C:\Eclipse\plugins\org.pitest.osgi_1.1.5.jar, C:\Eclipse\plugins\org.pitest.pitrunner_1.1.4.201604131555.jar, C:\Eclipse\plugins\org.pitest.guava-shade-osgi_18.0.0.jar]
+
+!ENTRY org.pitest.pitclipse.core 1 0 2016-04-26 15:03:56.050
+!MESSAGE Classpath: [C:\Towson\COSC 603\Projects\Project5\cosc603-shah-project5\CoffeeMaker\bin, C:\Towson\COSC 603\Projects\Project5\cosc603-shah-project5\CoffeeMaker\libs\junit-4.12.jar, C:\Towson\COSC 603\Projects\Project5\cosc603-shah-project5\CoffeeMaker\libs\hamcrest-core-1.3.jar, C:\Eclipse\plugins\org.pitest.command-line-osgi_1.1.5.jar, C:\Eclipse\plugins\org.pitest.html-report-osgi_1.1.5.jar, C:\Eclipse\plugins\org.pitest.osgi_1.1.5.jar, C:\Eclipse\plugins\org.pitest.pitrunner_1.1.4.201604131555.jar, C:\Eclipse\plugins\org.pitest.guava-shade-osgi_18.0.0.jar]
